@@ -1,0 +1,84 @@
+db-university
+
+- dipartimento
+ID: TINYINT ; AUTO_INCREMENT
+nome_facolta: VARCHAR(64) ; NOT NULLABLE
+indirizzo_legale: VARCHAR ; NOT NULLABLE
+tel_segreteria: VARCHAR(32) ; NOT NULLABLE 
+
+- corso di laurea
+ID: TINYINT ; AUTO_INCREMENT
+nome_corso_di_laurea: VARCHAR(64) ; NOT NULLABLE
+indirizzo: VARCHAR ; NOT NULLABLE
+tel_segreteria: VARCHAR(32) ; NOT NULLABLE
+n_insegnanti: TINYINT ; NOT NULLABLE
+n_studenti: SMALLINT ; AUTO_INCREMENT
+
+
+- corso
+ID: TINYINT ; AUTO_INCREMENT
+ID_insegnante: SMALLINT ; UNIQUE
+nome_corso: VARCHAR(64) ; NOT NULLABLE
+materiale_didattico: TEXT; NOT NULLABLE
+descrizione: TEXT ; NULLABLE
+
+- insegnante
+ID: SMALLINT ; AUTO_INCREMENT
+nome: VARCHAR(23) ; NOT NULLABLE
+cognome: VARCHAR(23) ; NOT NULLABLE
+data_nascita: DATE ; NOT NULLABLE
+luogo_nascita: VARCHAR(64) ; NOT NULLABLE
+tipo_documento: VARCHAR(16) ; NOT NULLABLE 
+n_documento: VARCHAR(32) ; NOT NULLABLE
+cf: VARCHAR(23) ; NOT NULLABLE ; UNIQUE
+genere: VARCHAR(16) ; NOT NULLABLE 
+foto: VARCHAR ; NOT NULLABLE
+n_tel: VARCHAR(32) ; NULLABLE 
+n_badge: VARCHAR(12) ; NOT NULLABLE ; UNIQUE
+username: VARCHAR(64) ; NOT NULLABLE ; UNIQUE
+password: VARCHAR(64) ; NOT NULLABLE
+email: VARCHAR(128) ; NOT NULLABLE ; UNIQUE
+data_assunzione: DATE ; NOT NULLABLE
+data_dimissione: DATE ; NULLABLE
+tipo_contratto: VARCHAR(64) ; NOT NULLABLE
+turno: VARCHAR(128) ; NULLABLE
+salario: INT ; NOT NULLABLE
+bonus: INT ; NOT NULLABLE
+
+- appello
+ID: MEDIUMINT ; AUTO_INCREMENT
+ID_studente: SMALLINT ; UNIQUE
+nome_studente: VARCHAR (23) ; NOT NULLABLE;
+cognome_studente: VARCHAR (23) ; NOT NULLABLE;
+materia: VARCHAR (64) ; NOT NULLABLE;
+
+- studente
+ID: MEDIUMINT ; AUTO_INCREMENT
+nome: VARCHAR(23) ; NOT NULLABLE
+cognome: VARCHAR(23) ; NOT NULLABLE
+data_nascita: DATE ; NOT NULLABLE
+luogo_nascita: VARCHAR(64) ; NOT NULLABLE
+tipo_documento: VARCHAR(16) ; NOT NULLABLE 
+n_documento: VARCHAR(32) ; NOT NULLABLE
+cf: VARCHAR(23) ; NOT NULLABLE ; UNIQUE
+genere: VARCHAR(16) ; NOT NULLABLE 
+foto: VARCHAR ; NULLABLE
+n_tel: VARCHAR(32) ; NULLABLE 
+n_matricola: VARCHAR(12) ; NOT NULLABLE ; UNIQUE
+username: VARCHAR(64) ; NOT NULLABLE ; UNIQUE
+password: VARCHAR(64) ; NOT NULLABLE
+email: VARCHAR(128) ; NOT NULLABLE ; UNIQUE
+pagamenti: VARCHAR ; NOT NULLABLE
+presenze: TINYINT; NULLABLE
+assenze: TINYINT; NULLABLE
+data_iscrizione: DATE ; NOT NULLABLE
+data_conseguimento: DATE ; NULLABLE
+
+- esito
+ID: MEDIUMINT ; AUTO_INCREMENT
+punteggio_scritti: TINYINT; NULLABLE
+punteggio_orali: TINYINT; NULLABLE
+punteggio_totale: TINYINT; NOT NULLABLE
+
+
+
